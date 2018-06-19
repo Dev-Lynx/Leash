@@ -1,0 +1,119 @@
+﻿<UserControl x:Class="Leash.Desktop.Views.RegisterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:local="clr-namespace:Leash.Desktop.Views"
+             mc:Ignorable="d" Background="{DynamicResource BackgroundBrush}"
+             d:DesignHeight="520" d:DesignWidth="520" prism:ViewModelLocator.AutoWireViewModel="True">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Leash.Common.Infrastructure;component/Resources/Common.xaml"/>
+    </UserControl.Resources>
+    <Grid Margin="20 10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Register Contestants" Foreground="{DynamicResource AuxBrush}"
+                   FontSize="40" FontWeight="Bold" Opacity=".7"/>
+
+        <StackPanel Grid.Row="1" Margin="10 5 30 5">
+            <DockPanel Margin="10 5 30 5">
+                <TextBlock Width="100" Text="Name: "/>
+
+                <ComboBox IsTextSearchEnabled="True" IsTextSearchCaseSensitive="True" StaysOpenOnEdit="True" TextSearch.TextPath="{Binding Name}" SelectedItem="{Binding SelectedContestant, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding DatabaseManager.Contestants}" Text="{Binding ContestantName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEditable="True">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+            </DockPanel>
+            <DockPanel Margin="10 5 30 5">
+                <TextBlock Width="100" Text="Role: "/>
+                <ComboBox ItemsSource="{Binding Coordinator.Roles}" SelectedIndex="{Binding ContestantRole, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </DockPanel>
+
+            <DockPanel Margin="10 5 30 5">
+                <TextBlock Width="100" Text="Partner: "/>
+                <ComboBox IsTextSearchEnabled="True" IsTextSearchCaseSensitive="True" StaysOpenOnEdit="True" TextSearch.TextPath="{Binding Name}" ItemsSource="{Binding DatabaseManager.Contestants}" Text="{Binding ContestantPartner, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEditable="True">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </DockPanel>
+
+            <DockPanel Margin="10 5 30 5">
+                <TextBlock Width="100" Text="Role: "/>
+                <ComboBox ItemsSource="{Binding Coordinator.Roles}" IsEnabled="False" SelectedIndex="{Binding PartnerRole, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </DockPanel>
+
+            <DockPanel Margin="10 5 30 5" LastChildFill="False">
+                <TextBlock DockPanel.Dock="Left" Width="100" Text="Max Entries: "/>
+                <TextBlock DockPanel.Dock="Left" Width="30" FontWeight="Bold" Foreground="{DynamicResource AuxBrush}" MaxWidth="200" TextAlignment="Center" Text="{Binding Coordinator.Info.MaxAppearances, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Opacity=".7"/>
+            </DockPanel>
+        </StackPanel>
+
+        <Button Content="Add" IsDefault="True" Grid.Row="2" HorizontalAlignment="Right" Margin="0,5,60,5" Padding="40 5" Command="{Binding AddCommand}" IsEnabled="{Binding CanAdd, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Grid.Row="3" Text="Contestants" Foreground="{DynamicResource AuxBrush}"
+                   FontSize="20" FontWeight="Bold" Opacity=".7"/>
+
+        
+        
+        <Border Margin="10 5 30 5" Grid.Row="4" BorderThickness="0" BorderBrush="{DynamicResource FaintAuxBrush}">
+            <ScrollViewer Grid.Row="3" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock TextAlignment="Center" Foreground="{DynamicResource AuxBrush}" FontWeight="Bold" Opacity=".7">
+                        Headers (<Run FontSize="13" Text="{Binding Coordinator.Info.HeaderCount, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>)
+                    </TextBlock>
+
+                    <TextBlock Grid.Column="1" TextAlignment="Center" Foreground="{DynamicResource AuxBrush}" FontWeight="Bold" Opacity=".7">
+                        Heelers (<Run FontSize="13" Text="{Binding Coordinator.Info.HeelerCount, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>)
+                    </TextBlock>
+
+                    <ItemsControl Grid.Row="1" ItemsSource="{Binding Coordinator.Info.OriginalHeaders}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock TextAlignment="Center" Padding="10 5" Text="{Binding}" Background="{DynamicResource AuxBrush}" Foreground="{DynamicResource MainBrush}" FontWeight="Bold" Opacity=".7"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <ItemsControl Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Coordinator.Info.OriginalHeelers}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock TextAlignment="Center" Padding="10 5" Text="{Binding}" Background="{DynamicResource MainBrush}" Foreground="{DynamicResource AuxBrush}" FontWeight="Bold" Opacity=".7"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+            </ScrollViewer>
+        </Border>
+
+
+        <TextBlock Text="{Binding ErrorMessage, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" Opacity=".7" Grid.Row="5" TextAlignment="Center"/>
+        <Button Command="{Binding StartCommand}" Grid.Row="6" HorizontalAlignment="Right" Margin="0 5 60 5" Padding="40 5" Content="Let's Get Started!"/>
+    </Grid>
+</UserControl>

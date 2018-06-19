@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-16"?>
+<BackupReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ID>0</ID>
+  <BackupPath>C:\Users\Prince\Documents\SafeT\Backups\2018-28-6--17-24-03.jlu</BackupPath>
+  <BackupTime>2018-06-28T17:24:03.3199772+01:00</BackupTime>
+  <BackedUpFiles>
+    <BackupFile>
+      <OriginalPath>C:\Users\Prince\Downloads\attachment_74014adf8a59fa5db6041cb204809f16.jpg</OriginalPath>
+      <Path>attachment_74014adf8a59fa5db6041cb204809f16.jpg</Path>
+      <Bytes>486668</Bytes>
+      <Success>true</Success>
+      <Restore>true</Restore>
+    </BackupFile>
+    <BackupFile>
+      <OriginalPath>C:\Users\Prince\Downloads\attachment_f307db77bd127add512a8c92ddd5aeea.jpg</OriginalPath>
+      <Path>attachment_f307db77bd127add512a8c92ddd5aeea.jpg</Path>
+      <Bytes>1522416</Bytes>
+      <Success>true</Success>
+      <Restore>true</Restore>
+    </BackupFile>
+    <BackupFile>
+      <OriginalPath>C:\Users\Prince\Downloads\Close Button.png</OriginalPath>
+      <Path>Close Button.png</Path>
+      <Bytes>25456</Bytes>
+      <Success>true</Success>
+      <Restore>true</Restore>
+    </BackupFile>
+    <BackupFile>
+      <OriginalPath>C:\Users\Prince\Downloads\Minimize Button.png</OriginalPath>
+      <Path>Minimize Button.png</Path>
+      <Bytes>24304</Bytes>
+      <Success>true</Success>
+      <Restore>true</Restore>
+    </BackupFile>
+    <BackupFile>
+      <OriginalPath>C:\Users\Prince\Downloads\Restore.png</OriginalPath>
+      <Path>Restore.png</Path>
+      <Bytes>58286</Bytes>
+      <Success>true</Success>
+      <Restore>true</Restore>
+    </BackupFile>
+    <BackupFile>
+      <OriginalPath>C:\Users\Prince\Downloads\Right Arrow.png</OriginalPath>
+      <Path>Right Arrow.png</Path>
+      <Bytes>20759</Bytes>
+      <Success>true</Success>
+      <Restore>true</Restore>
+    </BackupFile>
+    <BackupFile>
+      <OriginalPath>C:\Users\Prince\Downloads\Rope Cartoon.jpeg</OriginalPath>
+      <Path>Rope Cartoon.jpeg</Path>
+      <Bytes>275733</Bytes>
+      <Success>true</Success>
+      <Restore>true</Restore>
+    </BackupFile>
+    <BackupFile>
+      <OriginalPath>C:\Users\Prince\Downloads\Roping 2.jpg</OriginalPath>
+      <Path>Roping 2.jpg</Path>
+      <Bytes>151259</Bytes>
+      <Success>true</Success>
+      <Restore>true</Restore>
+    </BackupFile>
+    <BackupFile>
+      <OriginalPath>C:\Users\Prince\Downloads\Roping.jpg</OriginalPath>
+      <Path>Roping.jpg</Path>
+      <Bytes>11316</Bytes>
+      <Success>true</Success>
+      <Restore>true</Restore>
+    </BackupFile>
+  </BackedUpFiles>
+  <SkippedFiles />
+  <BackupSuccessful>true</BackupSuccessful>
+  <BackupDuration />
+  <Errors />
+  <BackupFileAvailable>false</BackupFileAvailable>
+</BackupReport>
